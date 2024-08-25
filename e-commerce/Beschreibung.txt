@@ -1,0 +1,50 @@
+Projekt E-Commerce:
+Produktmanager Paulina hat Sie gebeten, die getätigten Käufe zu analysieren und die folgenden Fragen zu beantworten:
+
+Wie viele Nutzer haben nur einmal eingekauft?
+Wie viele Bestellungen werden im Durchschnitt pro Monat aus verschiedenen Gründen nicht geliefert (detaillierte Aufschlüsselung der Gründe)?
+Bestimmen Sie für jedes Produkt, an welchem Wochentag es am häufigsten gekauft wird.
+Wie viele Käufe tätigt jeder Nutzer im Durchschnitt pro Woche (monatlich)? Es ist zu beachten, dass innerhalb eines Monats möglicherweise keine ganze Anzahl von Wochen vorhanden ist. Zum Beispiel hat der November 2021 4,28 Wochen. Dies muss in der Metrik berücksichtigt werden.
+5.1. Führen Sie eine Kohortenanalyse der Nutzer durch.
+
+5.2. Bestimmen Sie im Zeitraum von Januar bis Dezember die Kohorte mit der höchsten Retention im dritten Monat. Eine Beschreibung des Ansatzes finden Sie hier. Für die Visualisierung der Kohortentabelle empfehlen wir, das Beispiel aus Lektion 8 von Python, Abschnitt „Stilvolle Lektion“, Schritt 5 zu verwenden.
+
+Für eine qualitative Analyse der Zielgruppe werden häufig Ansätze verwendet, die auf Segmentierung basieren. Verwenden Sie Python, um eine RFM-Segmentierung der Nutzer durchzuführen, um Ihre Zielgruppe qualitativ zu bewerten. Sie können die folgenden Metriken zur Clusterbildung verwenden: R - Zeit seit dem letzten Kauf des Nutzers bis zum aktuellen Datum, F - Gesamtzahl der Käufe des Nutzers im Laufe der Zeit, M - Gesamtsumme der Käufe im Laufe der Zeit. Beschreiben Sie detailliert, wie Sie die Cluster erstellt haben. Definieren Sie für jedes RFM-Segment die Grenzen der Metriken Recency, Frequency und Monetary zur Interpretation dieser Cluster. Ein Beispiel für eine solche Beschreibung: Das RFM-Segment 132 (recency=1, frequency=3, monetary=2) hat folgende Metrikgrenzen: Recency von 130 bis 500 Tagen, Frequency von 2 bis 5 Bestellungen pro Woche, Monetary von 1780 bis 3560 Rubel pro Woche. Eine Beschreibung des Ansatzes finden Sie hier.
+Zur Lösung der Aufgabe führen Sie eine Voruntersuchung der Daten durch und formulieren Sie, was als Kauf gelten soll. Ihre Wahl können Sie mit Hilfe von Zahlungsnachweisen, Bestellstatus und anderen verfügbaren Daten begründen.
+
+Dateien:
+
+olist_customers_datase.csv — Tabelle mit einzigartigen Benutzer-IDs
+customer_id — Bestellbezogene Benutzer-ID
+customer_unique_id — Einzigartige Benutzer-ID (ähnlich wie Passnummer)
+customer_zip_code_prefix — Postleitzahl des Benutzers
+customer_city — Lieferstadt des Benutzers
+customer_state — Lieferstaat des Benutzers
+olist_orders_dataset.csv — Tabelle der Bestellungen
+order_id — Einzigartige Bestell-ID (Rechnungsnummer)
+customer_id — Bestellbezogene Benutzer-ID
+order_status — Bestellstatus
+order_purchase_timestamp — Zeitpunkt der Bestellerstellung
+order_approved_at — Zeitpunkt der Bestellbestätigung
+order_delivered_carrier_date — Zeitpunkt der Übergabe der Bestellung an den Logistikdienstleister
+order_delivered_customer_date — Zeitpunkt der Zustellung der Bestellung
+order_estimated_delivery_date — Erwartetes Lieferdatum
+olist_order_items_dataset.csv — Bestellpositionen
+order_id — Einzigartige Bestell-ID (Rechnungsnummer)
+order_item_id — Artikel-ID innerhalb einer Bestellung
+product_id — Produkt-ID (ähnlich wie Barcode)
+seller_id — Hersteller-ID des Produkts
+shipping_limit_date — Spätestes Lieferdatum für die Übergabe der Bestellung an den Logistikpartner durch den Verkäufer
+price — Preis pro Produkteinheit
+freight_value — Gewicht des Produkts
+Ein Beispiel für die Datenstruktur kann für order_id == 00143d0f86d6fbd9f9b38ab440ac16f5 visualisiert werden.
+Einzigartige Bestellstatus in der Tabelle olist_orders_dataset:
+
+created — Erstellt
+approved — Bestätigt
+invoiced — Rechnungsstellung
+processing — In Bearbeitung
+shipped — Versendet
+delivered — Zugestellt
+unavailable — Nicht verfügbar
+canceled — Storniert

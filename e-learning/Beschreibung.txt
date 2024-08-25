@@ -1,0 +1,54 @@
+Produktmanagerin Ursula hat Sie gebeten, die abgeschlossenen Lektionen zu analysieren und die folgenden Fragen zu beantworten:
+
+1. **Wie viele Studenten haben erfolgreich nur einen Kurs abgeschlossen?** (Ein erfolgreicher Abschluss ist das Bestehen des Kurses in der Prüfung).
+
+2. **Bestimmen Sie die schwierigste und die einfachste Prüfung**:
+    - Finden Sie die Kurse und Prüfungen innerhalb eines Kurses, die die niedrigste und höchste Abschlussquote* aufweisen.
+
+3. **Ermitteln Sie die durchschnittliche Dauer der Prüfungseingaben für jedes Fach**:
+    - Ein Abschluss bezieht sich auf das letzte erfolgreiche Bestehen der Prüfung durch den Studenten.
+
+4. **Bestimmen Sie die beliebtesten Fächer (TOP-3)** nach der Anzahl der Anmeldungen. Und auch die Fächer mit der höchsten Abbruchrate (TOP-3).
+
+5. **Verwenden Sie pandas, um im Zeitraum von Anfang 2013 bis Ende 2014 das Semester mit der niedrigsten Abschlussquote und den längsten durchschnittlichen Abschlusszeiten für Kurse zu identifizieren.**
+
+6. **Für eine qualitative Analyse der Zielgruppe werden oft Segmentierungsansätze verwendet**:
+    - Verwenden Sie Python, um angepasste RFM-Cluster für die Studenten zu erstellen, um Ihre Zielgruppe qualitativ zu bewerten.
+    - In der angepassten Clusterung können Sie folgende Metriken wählen:
+        - **R** - durchschnittliche Zeit für das Bestehen einer Prüfung
+        - **F** - Abschlussquote der Kurse
+        - **M** - durchschnittliche Punktzahl, die in der Prüfung erreicht wird
+    - Beschreiben Sie detailliert die Erstellung der Cluster. Bestimmen Sie für jedes RFM-Segment die Grenzwerte für die Metriken Recency, Frequency und Monetary zur Interpretation dieser Cluster.
+
+Führen Sie eine vorläufige Datenuntersuchung durch und formulieren Sie, was als Kurs betrachtet werden sollte. Begründen Sie Ihre Wahl anhand von Prüfungsdaten, Studentenverteilung und der eindeutigen Kurskennung.
+
+*Abschlussquote = Anzahl der erfolgreichen Prüfungen / Anzahl aller Prüfungsversuche
+
+**Dateien:**
+
+- **assessments.csv** — Diese Datei enthält Informationen zu den Testergebnissen. In der Regel umfasst jeder Kurs im Semester eine Reihe von Tests mit Bewertungen, gefolgt von einem Abschlussprüfungs-Test (Prüfung).
+    - `code_module` — Identifikationscode des Fachs.
+    - `code_presentation` — Semester (Identifikationscode).
+    - `id_assessment` — Test (Identifikationsnummer des Assessments).
+    - `assessment_type` — Art des Tests. Es gibt drei Bewertungsarten: Lehrbewertung (TMA), Computerbewertung (CMA), Kursprüfung (Exam).
+    - `date` — Informationen zum endgültigen Datum der Prüfung. Dies wird als Anzahl der Tage seit Beginn des Semesters berechnet. Der Beginn des Semesters hat die Nummer 0 (null).
+    - `weight` — Gewicht des Tests in % der Kursbewertung. In der Regel werden Prüfungen separat betrachtet und haben ein Gewicht von 100%; die Summe aller anderen Bewertungen beträgt 100%.
+
+- **courses.csv** — Diese Datei enthält eine Liste der Kurse nach Semestern.
+    - `code_module` — Fach (Identifikationscode).
+    - `code_presentation` — Semester (Identifikationscode).
+    - `module_presentation_length` — Dauer des Semesters in Tagen.
+
+- **studentAssessment.csv** — Diese Datei enthält die Ergebnisse der Studententests. Wenn ein Student keine Arbeit zur Bewertung einreicht, wird das Ergebnis nicht in der Tabelle erfasst.
+    - `id_assessment` — Test (Identifikationsnummer).
+    - `id_student` — Identifikationsnummer des Studenten.
+    - `date_submitted` — Datum der Einreichung des Tests durch den Studenten, gemessen als Anzahl der Tage seit Beginn des Semesters.
+    - `is_banked` — Tatsache der Anerkennung des Tests aus einem früheren Semester (manchmal werden Kurse den Studenten, die aus dem akademischen Urlaub zurückgekehrt sind, anerkannt).
+    - `score` — Bewertung des Studenten in diesem Test. Der Bereich reicht von 0 bis 100. Eine Bewertung unter 40 gilt als nicht bestanden.
+
+- **studentRegistration.csv** — Diese Datei enthält Informationen zum Zeitpunkt, wann ein Student sich für den Kurs im Semester registriert hat.
+    - `code_module` — Fach (Identifikationscode).
+    - `code_presentation` — Semester (Identifikationscode).
+    - `id_student` — Identifikationsnummer des Studenten.
+    - `date_registration` — Datum der Registrierung des Studenten. Dies ist die Anzahl der Tage gemessen seit Beginn des Semesters (z. B. ein negativer Wert -30 bedeutet, dass sich der Student 30 Tage vor Beginn des Kurses registriert hat).
+    - `date_unregistration` — Datum der Abmeldung des Studenten vom Fach. Bei Studenten, die den Kurs abgeschlossen haben, bleibt dieses Feld leer.
