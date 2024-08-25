@@ -1,0 +1,14 @@
+**Aufgabe A/B-Test**
+
+**1.1 Bedingung**
+
+Eine der Hauptaufgaben eines Analysten in unserem Team besteht darin, Experimente korrekt durchzuführen. Dazu verwenden wir die Methode des A/B-Tests. Im Rahmen des Tests wurde einer Hypothese die neue Zahlungsmethode auf der Website einer Zielgruppe vorgeschlagen, während die Kontrollgruppe die Basis-Zahlungsmethode beibehielt. Ihre Aufgabe ist es, die Ergebnisse des Experiments zu analysieren und zu entscheiden, ob es sinnvoll ist, die neue Zahlungsmethode für alle Benutzer einzuführen.
+
+**1.2 Eingabedaten**
+
+Als Eingabedaten stehen Ihnen 4 CSV-Dateien zur Verfügung:
+
+- **groups.csv** - Datei mit Informationen zur Zugehörigkeit der Benutzer zur Kontroll- oder Experimentiergruppe (A – Kontrollgruppe, B – Zielgruppe)
+- **groups_add.csv** - zusätzliche Datei mit Benutzern, die Ihnen zwei Tage nach Übermittlung der Daten geschickt wurden
+- **active_studs.csv** - Datei mit Informationen über Benutzer, die sich an den Tagen des Experiments auf der Plattform eingeloggt haben
+- **checks.csv** - Datei mit Informationen über die Zahlungen der Benutzer an den Tagen des Experiments
